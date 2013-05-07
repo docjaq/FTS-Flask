@@ -17,7 +17,7 @@ def new_post():
         return render_template('new_post.html')
     elif request.method == 'POST':
         tools.newPost(request.form['title'], request.form['content'])
-        return url_for('/')
+        return redirect(url_for('index'))
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0')

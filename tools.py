@@ -26,7 +26,7 @@ class Post(db.Document):
 def newPost(title, content):
     post = Post()
     post.id = str(uuid.uuid4())
-    post.date = int(math.floor(time.time))
+    post.date = int(math.floor(time.time()))
     post.title = title
     post.content = content
     post.save()
