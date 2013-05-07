@@ -1,3 +1,25 @@
-body {  
+* {
+    margin: 0px;
+}
+
+body, html {  
+    font-family: 'Titillium Web', sans-serif;
+}
+
+header {
+    background: #F5F5F5;
+    text-align:center;
+}
+
+#content {
     margin-left:20%;
+    margin-right: 20%;
+}
+
+#new {
+    float:right;
+}
+
+p {
+    text-align: center;
 }

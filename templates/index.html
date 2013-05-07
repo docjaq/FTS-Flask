@@ -3,15 +3,18 @@
     <head>
         <title>Flaskage</title>
         <link rel="stylesheet" href="static/css/style.css"/>
+        <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600,700' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <header>
-            <h1>Flogger</h1>
+            <h1>FTS Flask</h1>
+            <a id="new" href="/new">New Post</a>
         </header>
         <div id="content"> 
             {% for post in posts %}
-            <h2>{{post.title}}</h2>
+            <h1>{{post.title}}</h1>
             <p>{{post.content}}</p>
+            <br/>
             {% endfor %}
         </div>
     </body>
