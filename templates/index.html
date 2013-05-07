@@ -2,12 +2,17 @@
 <html>
     <head>
         <title>Flaskage</title>
+        <link rel="stylesheet" href="static/css/style.css"/>
     </head>
     <body>
         <header>
             <h1>Flogger</h1>
         </header>
         <div id="content"> 
+            {% for post in posts %}
+            <h2>{{post.title}}</h2>
+            <p>{{post.content}}</p>
+            {% endfor %}
         </div>
     </body>
 </html>

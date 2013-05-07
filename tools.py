@@ -25,7 +25,7 @@ class Post(db.Document):
 
 def newPost(title, content):
     post = Post()
-    post.id = str(uuid.uuid4())        
+    post.id = str(uuid.uuid4())
     post.date = int(math.floor(time.time))
     post.title = title
     post.content = content
@@ -39,7 +39,7 @@ def getPosts(pageNo = 1):
     data['next'] = posts.has_next()
     data['prev'] = posts.has_prev()
     data['page'] = pageNo
-    data['total_pages'] = pages
+    data['total_pages'] = posts.pages
     for post in posts.items:
         p = {}
         p['id'] = post.id
