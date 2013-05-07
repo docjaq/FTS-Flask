@@ -47,4 +47,5 @@ def getPosts(pageNo = 1):
         p['title'] = post.title
         p['content'] = post.content
         post_list.append(p)
-    return (data, post_list)
+    sorted_posts = sorted(post_list, key=lambda k: k['date'], reverse=True)
+    return (data, sorted_posts)
