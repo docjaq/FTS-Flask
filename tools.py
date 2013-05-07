@@ -26,7 +26,7 @@ class Post(db.Document):
 def newPost(title, content):
     post = Post()
     post.id = str(uuid.uuid4())        
-    post.date = Math.floor(time.time())
+    post.date = int(math.floor(time.time))
     post.title = title
     post.content = content
     post.save()
@@ -35,7 +35,11 @@ def newPost(title, content):
 def getPosts(pageNo = 1):
     posts = Post.query.paginate(page=pageNo, per_page=10)
     post_list = []
-
+    data = {}
+    data['next'] = posts.has_next()
+    data['prev'] = posts.has_prev()
+    data['page'] = pageNo
+    data['total_pages'] = pages
     for post in posts.items:
         p = {}
         p['id'] = post.id
@@ -43,4 +47,4 @@ def getPosts(pageNo = 1):
         p['title'] = post.title
         p['content'] = post.content
         post_list.append(p)
-    return post_list
+    return (data, post_list)
