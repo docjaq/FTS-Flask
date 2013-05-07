@@ -8,7 +8,16 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    data, posts = tools.getPosts()
+    return render_template('index.html', data=data, posts=posts)
+
+@app.route('/new', methods=['GET', 'POST'])
+def new_post():
+    if request.method == 'GET':
+        return render_template('new_post.html')
+    elif request.method == 'POST':
+        tools.newPost(request.form['title'], request.form['content'])
+        return redirect(url_for('index'))
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0')
