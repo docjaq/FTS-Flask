@@ -27,4 +27,19 @@ def newPost(title, content):
     post = Post()
     post.id = str(uuid.uuid4())        
     post.date = Math.floor(time.time())
+    post.title = title
+    post.content = content
+    return True
 
+def getPosts(pageNo = 1):
+    posts = Post.query.paginate(page=pageNo, per_page=10)
+    post_list = []
+
+    for post in posts.items:
+        p = {}
+        p['id'] = post.id
+        p['date'] = post.date
+        p['title'] = post.title
+        p['content'] = post.content
+        post_list.append(p)
+    return post_list
