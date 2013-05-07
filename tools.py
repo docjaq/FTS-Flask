@@ -29,6 +29,7 @@ def newPost(title, content):
     post.date = Math.floor(time.time())
     post.title = title
     post.content = content
+    post.save()
     return True
 
 def getPosts(pageNo = 1):
